@@ -1,0 +1,51 @@
+{
+  "name": "Screen Recorder",
+  "version": "1.0",
+  "description": "Build an Extension!",
+  "background": {
+    "service_worker": "./src/js/background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "desktopCapture", "tabs"],
+  "action": {
+    "default_icon": {
+      "16": "./src/images/icons/icon-16.png",
+      "24": "./src/images/icons/icon-24.png",
+      "32": "./src/images/icons/icon-32.png",
+      "64": "./src/images/icons/icon-64.png",
+      "128": "./src/images/icons/icon-128.png"
+    },
+    "default_popup": "./src/html/popup.html"
+  },
+  "icons": {
+    "16": "./src/images/icons/icon-16.png",
+    "24": "./src/images/icons/icon-24.png",
+    "32": "./src/images/icons/icon-32.png",
+    "64": "./src/images/icons/icon-64.png",
+    "128": "./src/images/icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./src/js/content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/css/main-style.css",
+        "src/html/audio-checker.html",
+        "src/js/audio-checker.js",
+        "src/css/audio-visual.css",
+        "src/html/audio-visual.html",
+        "src/html/audio-visual.js",
+        "src/html/camera-container.html",
+        "src/css/camera-container.css",
+        "src/js/camera-container.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "manifest_version": 3
+}

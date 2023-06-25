@@ -1,0 +1,49 @@
+.mr-10 {
+  margin-right: 10px;
+}
+
+.camera-wrapper {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  bottom: 50px;
+  left: 20px;
+  margin: 0;
+  border-radius: 50% !important;
+  background: #fff;
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 0);
+  mask-image: radial-gradient(circle, #fff 100%, #000 0);
+  z-index: 2147483646;
+  cursor: pointer;
+}
+
+.camera-wrapper iframe {
+  border: none;
+  width: 100%;
+  min-width: auto !important;
+  height: 100%;
+  min-height: auto !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+.audio-visual-container-wrapper {
+  position: fixed;
+  bottom: 50px;
+  left: 250px;
+  margin: 0;
+  background-color: transparent;
+  z-index: 2147483647;
+  cursor: pointer;
+}
+
+.audio-visual-container-wrapper iframe {
+  border: none;
+  width: 100%;
+  min-width: auto !important;
+  height: 100%;
+  min-height: auto !important;
+  user-select: none;
+  background-color: transparent;
+  color-scheme: normal;
+}

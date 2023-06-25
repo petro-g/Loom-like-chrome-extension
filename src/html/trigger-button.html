@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function triggerRecordExtension() {
+        window.postMessage({ type: 'screen-recorder-extension.startStreaming' }, '*');
+      }
+      function stopRecording() {
+        window.postMessage({ type: 'screen-recorder-extension.stopStreaming' }, '*');
+      }
+      function cancelRecording() {
+        window.postMessage({ type: 'screen-recorder-extension.cancelStreaming' }, '*');
+      }
+      window.addEventListener('message', (event) => {
+        if (!event.data || typeof event.data !== 'object') {
+          return;
+        }
+        if (event.data.type === 'screen-recorder-extension.streamStarted') {
+          // do stuff which needs to done when stream is started
+          console.log(event.data);
+          return;
+        }
+        if (event.data.type === 'screen-recorder-extension.streamCancelled') {
+          // do stuff which needs to done when stream is cancelled
+          console.log(event.data);
+          return;
+        }
+        if (event.data.type === 'screen-recorder-extension.streamStopped') {
+          // do stuff which needs to done when stream is stopped. it happens when user pressed stop button to decide whether to save or cancel the recording
+          console.log(event.data);
+          return;
+        }
+      });
+      async function triggerRecordExtensionWithAwsCreds() {
+        const tempCredsRes = await fetch('https://recording.coolbrandsstore.com/api/v1/recorders/temp-creds').then((r) => r.json());
+
+        // to pass s3 credentials, which extension can be used.
+        // inspect API data in network tab to see what is contain in tempCredesRes.data object
+        window.postMessage({ type: 'screen-recorder-extension.startStreaming', s3Credentials: tempCredsRes.data }, '*');
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="triggerRecordExtension();">Trigger Recorder</button>
+    <button onclick="stopRecording();">Stop Recording</button>
+    <button onclick="cancelRecording();">Cancel Recording</button>
+    <button onclick="triggerRecordExtensionWithAwsCreds();">Trigger Recorder With AWS Creds</button>
+  </body>
+</html>

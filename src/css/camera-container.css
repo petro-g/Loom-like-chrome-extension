@@ -1,0 +1,8 @@
+.camera-feed {
+  height: 100%;
+  display: inherit;
+}
+.flipped {
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}

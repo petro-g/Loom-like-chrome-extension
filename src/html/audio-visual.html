@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Screen Recorder</title>
+    <meta charset="utf-8" />
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+    <link href="../vendor/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="../vendor/font-awesome/css/regular.min.css" rel="stylesheet" />
+    <link href="../vendor/font-awesome/css/solid.min.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../css/audio-visual.css" />
+    <script src="../vendor/aws-sdk.js"></script>
+  </head>
+  <body>
+    <div class="bottom-controller-wrapper">
+      <div id="controls-container">
+        <div id="basic-controls" class="button-menu-content">
+          <button id="exit-record-button" class="button-danger button">
+            <i class="far fa-times-circle fa-2x"></i>
+          </button>
+          <button id="stop-record-button" class="button-scuccess button">
+            <i class="far fa-check-circle fa-2x"></i>
+          </button>
+          <button id="pause-resume-button" class="button button-info">
+            <i class="far fa-pause-circle fa-2x"></i>
+          </button>
+          <span class="timer-circle" id="timer-component">00:00</span>
+        </div>
+        <div id="save-media-controls" class="button-menu-content hide">
+          <button id="save-media-button" class="button-info button">
+            <i class="far fa-save fa-2x"></i>
+          </button>
+          <button id="cancel-media-button" class="button-danger button">
+            <i class="far fa-trash-alt fa-2x"></i>
+          </button>
+        </div>
+        <div id="media-saved-controls" class="button-menu-content hide">
+          <button id="copy-url-button" class="button-info button">
+            <i class="far fa-copy fa-2x"></i>
+          </button>
+          <a id="download-button" role="button" class="button-info button" download="true">
+            <i class="fas fa-download fa-2x"></i>
+          </a>
+          <button id="exit-button" class="button-danger button">
+            <i class="far fa-times-circle fa-2x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/audio-visual.js"></script>
+  </body>
+</html>
